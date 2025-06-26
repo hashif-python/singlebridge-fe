@@ -1,10 +1,12 @@
-import React from 'react';
+// React import not needed with modern JSX transform
 import { motion } from 'framer-motion';
 import { Code, Cloud, Smartphone, BrainCircuit, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
     id: 1,
+    slug: 'software-development',
     title: 'Software Development',
     description: 'Custom software solutions tailored to your unique business needs, from enterprise systems to specialized tools.',
     icon: <Code size={40} className="text-primary-500" />,
@@ -12,6 +14,7 @@ const services = [
   },
   {
     id: 2,
+    slug: 'cloud-solutions',
     title: 'Cloud Solutions',
     description: 'Secure, scalable cloud infrastructure with migration services, optimization, and ongoing maintenance.',
     icon: <Cloud size={40} className="text-primary-500" />,
@@ -19,6 +22,7 @@ const services = [
   },
   {
     id: 3,
+    slug: 'web-mobile-development',
     title: 'Web & Mobile Development',
     description: 'Responsive websites and native mobile applications with intuitive UI/UX and cross-platform compatibility.',
     icon: <Smartphone size={40} className="text-primary-500" />,
@@ -26,6 +30,7 @@ const services = [
   },
   {
     id: 4,
+    slug: 'ai-integration',
     title: 'AI Integration',
     description: 'Harness the power of artificial intelligence and machine learning to transform your data into actionable insights.',
     icon: <BrainCircuit size={40} className="text-primary-500" />,
@@ -52,11 +57,11 @@ const Services = () => {
         <div className="section-title">
           <h2 className="mb-4">Our Services</h2>
           <p className="text-secondary-500 text-lg max-w-2xl mx-auto">
-            We deliver cutting-edge technology solutions to help businesses transform, 
+            We deliver cutting-edge technology solutions to help businesses transform,
             innovate, and thrive in the digital landscape.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
@@ -72,10 +77,10 @@ const Services = () => {
                 <div className="mb-6 p-4 rounded-full bg-primary-50 inline-flex">
                   {service.icon}
                 </div>
-                
+
                 <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
                 <p className="text-secondary-600 mb-6 flex-grow">{service.description}</p>
-                
+
                 <div className="mb-6">
                   <h4 className="text-sm font-semibold uppercase text-secondary-500 mb-2">Benefits</h4>
                   <ul className="space-y-1">
@@ -87,21 +92,21 @@ const Services = () => {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="mt-auto">
-                  <a 
-                    href="#contact" 
+                  <Link
+                    to={`/services/${service.slug}`}
                     className="inline-flex items-center text-primary-500 font-medium group-hover:text-primary-600"
                   >
                     Learn more
                     <ExternalLink size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center">
           <a href="#contact" className="btn btn-primary">
             Discuss Your Project

@@ -1,10 +1,13 @@
-import React from 'react';
+// React import not needed with modern JSX transform
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Code, Cloud, Smartphone, BrainCircuit } from 'lucide-react';
 
+// Projects with slugs for routing to detail pages
 const projects = [
   {
     id: 1,
+    slug: 'enterprise-management-system',
     title: 'Enterprise Management System',
     category: 'Software Development',
     description: 'A comprehensive system for managing business operations',
@@ -13,14 +16,16 @@ const projects = [
   },
   {
     id: 2,
+    slug: 'cloud-migration-solution',
     title: 'Cloud Migration Solution',
     category: 'Cloud Solutions',
     description: 'Seamless transition to cloud infrastructure',
     image: 'https://images.pexels.com/photos/7108/notebook-computer-chill-relax.jpg?auto=compress&cs=tinysrgb&w=1600',
-    icon: <Cloud className="text-primary-500\" size={24} />,
+    icon: <Cloud className="text-primary-500" size={24} />,
   },
   {
     id: 3,
+    slug: 'ecommerce-mobile-app',
     title: 'E-commerce Mobile App',
     category: 'Mobile Development',
     description: 'Feature-rich mobile shopping experience',
@@ -29,11 +34,12 @@ const projects = [
   },
   {
     id: 4,
+    slug: 'ai-analytics-platform',
     title: 'AI Analytics Platform',
     category: 'AI Integration',
     description: 'Advanced analytics powered by artificial intelligence',
     image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    icon: <BrainCircuit className="text-primary-500\" size={24} />,
+    icon: <BrainCircuit className="text-primary-500" size={24} />,
   },
 ];
 
@@ -79,7 +85,13 @@ function Portfolio() {
                       </span>
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-200">{project.description}</p>
+                    <p className="text-gray-200 mb-4">{project.description}</p>
+                    <Link 
+                      to={`/portfolio/${project.slug}`}
+                      className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-md text-sm hover:bg-primary-600 transition-colors"
+                    >
+                      View Details
+                    </Link>
                   </div>
                 </div>
               </div>

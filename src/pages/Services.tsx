@@ -1,10 +1,12 @@
-import React from 'react';
+// React import not needed with modern JSX transform
 import { motion } from 'framer-motion';
-import { Code, Cloud, Smartphone, BrainCircuit, CheckCircle2 } from 'lucide-react';
+import { Code, Cloud, Smartphone, BrainCircuit, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
     id: 1,
+    slug: 'software-development',
     title: 'Software Development',
     description: 'Custom software solutions tailored to your unique business needs, from enterprise systems to specialized tools.',
     icon: <Code size={48} className="text-primary-500" />,
@@ -25,6 +27,7 @@ const services = [
   },
   {
     id: 2,
+    slug: 'cloud-solutions',
     title: 'Cloud Solutions',
     description: 'Secure, scalable cloud infrastructure with migration services, optimization, and ongoing maintenance.',
     icon: <Cloud size={48} className="text-primary-500" />,
@@ -45,6 +48,7 @@ const services = [
   },
   {
     id: 3,
+    slug: 'web-mobile-development',
     title: 'Web & Mobile Development',
     description: 'Responsive websites and native mobile applications with intuitive UI/UX and cross-platform compatibility.',
     icon: <Smartphone size={48} className="text-primary-500" />,
@@ -65,6 +69,7 @@ const services = [
   },
   {
     id: 4,
+    slug: 'ai-integration',
     title: 'AI Integration',
     description: 'Harness the power of artificial intelligence and machine learning to transform your data into actionable insights.',
     icon: <BrainCircuit size={48} className="text-primary-500" />,
@@ -140,6 +145,14 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
+                    
+                    <Link 
+                      to={`/services/${service.slug}`}
+                      className="inline-flex items-center text-primary-500 font-medium hover:text-primary-600 mt-4"
+                    >
+                      View Service Details
+                      <ArrowRight size={18} className="ml-2" />
+                    </Link>
                   </div>
                 </div>
                 
