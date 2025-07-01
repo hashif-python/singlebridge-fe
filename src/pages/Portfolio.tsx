@@ -51,10 +51,22 @@ function Portfolio() {
       transition={{ duration: 0.6 }}
       className="pt-20 md:pt-24"
     >
-      <div className="bg-primary-500 text-white py-16 md:py-24">
+      <div 
+        className="bg-primary-500 text-white py-16 md:py-24"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'soft-light',
+          backgroundColor: 'rgba(30, 64, 175, 0.65)', // Lighter blue for better readability
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-800/60 to-indigo-700/50"></div>
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio</h1>
-          <p className="text-xl text-primary-100 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">Our Portfolio</h1>
+          <p className="text-xl text-white max-w-2xl font-medium drop-shadow">
             Explore our latest projects and see how we've helped businesses transform through technology.
           </p>
         </div>

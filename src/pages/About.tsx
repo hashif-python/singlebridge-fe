@@ -1,4 +1,4 @@
-import React from 'react';
+// React import not needed with modern JSX transform
 import { motion } from 'framer-motion';
 
 function About() {
@@ -9,22 +9,34 @@ function About() {
       transition={{ duration: 0.6 }}
       className="pt-20 md:pt-24"
     >
-      <div className="bg-primary-500 text-white py-16 md:py-24">
+      <div
+        className="bg-primary-500 text-white py-16 md:py-24"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'soft-light',
+          backgroundColor: 'rgba(20, 110, 140, 0.65)', // Lighter teal-blue for better readability
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-800/60 to-blue-700/50"></div>
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
-          <p className="text-xl text-primary-100 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">About Us</h1>
+          <p className="text-xl text-white max-w-2xl font-medium drop-shadow">
             Bridging the gap between innovative ideas and technological solutions.
           </p>
         </div>
       </div>
-      
+
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-3xl mx-auto space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="prose prose-lg"
+            className="prose prose-lg relative z-10"
           >
             <p className="text-lg text-gray-700">
               At Single Bridge, we're passionate about bridging the gap between innovative ideas and technological solutions. Our team of dedicated professionals brings together decades of experience to deliver exceptional results for our clients.
@@ -36,7 +48,7 @@ function About() {
               We believe in creating lasting partnerships with our clients, understanding their unique challenges, and delivering solutions that drive real business value.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -47,7 +59,7 @@ function About() {
               <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
               <p className="text-gray-600">To deliver innovative technology solutions that empower businesses to thrive in the digital age.</p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -57,7 +69,7 @@ function About() {
               <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
               <p className="text-gray-600">To be the leading technology partner for forward-thinking organizations worldwide.</p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

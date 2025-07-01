@@ -1,4 +1,3 @@
-import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -56,16 +55,35 @@ function Testimonials() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="py-16 bg-gradient-to-b from-gray-50 to-white"
+      className="pt-20 md:pt-24"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        className="bg-primary-500 text-white py-16 md:py-24"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/7709020/pexels-photo-7709020.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'soft-light',
+          backgroundColor: 'rgba(88, 43, 129, 0.65)', // Lighter purple for better readability
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-800/60 to-indigo-700/50"></div>
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">Client Testimonials</h1>
+          <p className="text-xl text-white max-w-2xl font-medium drop-shadow">
+            Discover what our clients have to say about their experiences working with us.
+          </p>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
-          <Quote className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6">
+          <Quote className="w-12 h-12 text-primary-600 mx-auto mb-4" />
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">
             Client Success Stories
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover what our clients have to say about their experiences working with us. 
             These testimonials reflect our commitment to excellence and client satisfaction.
           </p>
         </div>
@@ -78,7 +96,7 @@ function Testimonials() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
               <div className="p-8">
                 <div className="flex items-center mb-6">
@@ -111,8 +129,8 @@ function Testimonials() {
 
         <div className="mt-16 text-center">
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Want to share your experience working with us? 
-            <a href="/contact" className="text-indigo-600 hover:text-indigo-500 ml-2">
+            Want to share your experience working with us?
+            <a href="/contact" className="text-primary-600 hover:text-primary-500 ml-2">
               Contact us
             </a>
           </p>

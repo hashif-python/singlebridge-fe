@@ -99,14 +99,18 @@ const Services = () => {
       className="pt-20 md:pt-24"
     >
       <div 
-        className="bg-primary-500 text-white py-16 md:py-24 relative overflow-hidden"
+        className="bg-primary-500 text-white py-16 md:py-24"
         style={{
           backgroundImage: "url('https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1600')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay',
+          backgroundColor: 'rgba(0, 128, 128, 0.85)', 
+          position: 'relative',
+          overflow: 'hidden'
         }}
       >
-        <div className="absolute inset-0 bg-primary-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-800/90 to-emerald-700/70"></div>
         <div className="container relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
           <p className="text-xl text-primary-100 max-w-2xl">
