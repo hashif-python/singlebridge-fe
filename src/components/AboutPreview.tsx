@@ -24,14 +24,20 @@ const AboutPreview = () => {
           >
             <h3 className="text-2xl font-semibold mb-4">Our Story</h3>
             <p className="text-gray-600 mb-6">
-              Founded in 2025, Single Bridge was born from a vision to create a technology partner that truly understands the unique challenges businesses face in the digital age. Our founders brought together decades of combined experience from leading tech companies, united by a shared commitment to excellence and innovation.
+              Founded in 2025 by a group of passionate tech professionals from Kerala, Single Bridge was created with a simple mission: to make advanced technology accessible, meaningful, and impactful for businesses of all sizes.
             </p>
             <p className="text-gray-600 mb-6">
-              We believe technology should empower, not complicate. That's why we focus on creating solutions that are not only technologically advanced, but also intuitive, scalable, and aligned with your business objectives.
+              Our team combines expertise across software development, cloud infrastructure, and AI-powered applications. Rooted in a culture of curiosity and collaboration, we take pride in crafting solutions that help organizations grow, adapt, and succeed in the digital era.
             </p>
-            <Link to="/about" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            <p className="text-gray-600 mb-6">
+              Whether you're a startup looking to launch your first product or an established enterprise seeking to modernize your systems, we're here to be your trusted technology partner.
+            </p>
+            {/* <Link
+              to="/about"
+              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
               Learn More
-            </Link>
+            </Link> */}
           </motion.div>
 
           <div className="md:col-span-1">
@@ -46,7 +52,9 @@ const AboutPreview = () => {
                 <Lightbulb className="text-blue-600 w-6 h-6 mr-3" />
                 <div>
                   <h4 className="text-lg font-semibold">Innovation</h4>
-                  <p className="text-gray-600 text-sm">We embrace new ideas and cutting-edge technologies.</p>
+                  <p className="text-gray-600 text-sm">
+                    We embrace emerging technologies to solve real-world challenges.
+                  </p>
                 </div>
               </div>
 
@@ -54,15 +62,19 @@ const AboutPreview = () => {
                 <Users className="text-blue-600 w-6 h-6 mr-3" />
                 <div>
                   <h4 className="text-lg font-semibold">Collaboration</h4>
-                  <p className="text-gray-600 text-sm">We work closely with our clients to achieve shared success.</p>
+                  <p className="text-gray-600 text-sm">
+                    Our team works side by side with you to bring your ideas to life.
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-center p-4 bg-white rounded-lg shadow-md">
                 <Rocket className="text-blue-600 w-6 h-6 mr-3" />
                 <div>
-                  <h4 className="text-lg font-semibold">Results</h4>
-                  <p className="text-gray-600 text-sm">We are committed to delivering measurable and impactful outcomes.</p>
+                  <h4 className="text-lg font-semibold">Growth</h4>
+                  <p className="text-gray-600 text-sm">
+                    We are dedicated to delivering solutions that help your business grow.
+                  </p>
                 </div>
               </div>
             </motion.div>

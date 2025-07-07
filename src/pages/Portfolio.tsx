@@ -1,49 +1,38 @@
-// React import not needed with modern JSX transform
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Code, Cloud, Smartphone, BrainCircuit } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-// Projects with slugs for routing to detail pages
-const projects = [
-  {
-    id: 1,
-    slug: 'enterprise-management-system',
-    title: 'Enterprise Management System',
-    category: 'Software Development',
-    description: 'A comprehensive system for managing business operations',
-    image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    icon: <Code className="text-primary-500" size={24} />,
-  },
-  {
-    id: 2,
-    slug: 'cloud-migration-solution',
-    title: 'Cloud Migration Solution',
-    category: 'Cloud Solutions',
-    description: 'Seamless transition to cloud infrastructure',
-    image: 'https://images.pexels.com/photos/7108/notebook-computer-chill-relax.jpg?auto=compress&cs=tinysrgb&w=1600',
-    icon: <Cloud className="text-primary-500" size={24} />,
-  },
-  {
-    id: 3,
-    slug: 'ecommerce-mobile-app',
-    title: 'E-commerce Mobile App',
-    category: 'Mobile Development',
-    description: 'Feature-rich mobile shopping experience',
-    image: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    icon: <Smartphone className="text-primary-500" size={24} />,
-  },
-  {
-    id: 4,
-    slug: 'ai-analytics-platform',
-    title: 'AI Analytics Platform',
-    category: 'AI Integration',
-    description: 'Advanced analytics powered by artificial intelligence',
-    image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    icon: <BrainCircuit className="text-primary-500" size={24} />,
-  },
-];
+interface Project {
+  breadcrumb_image: string | undefined;
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image_url: string;
+  category: string;
+}
 
 function Portfolio() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/portfolio`);
+        if (!res.ok) throw new Error("Failed to fetch projects");
+        const data = await res.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -51,21 +40,24 @@ function Portfolio() {
       transition={{ duration: 0.6 }}
       className="pt-20 md:pt-24"
     >
-      <div 
+      <div
         className="bg-primary-500 text-white py-16 md:py-24"
         style={{
-          backgroundImage: "url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'soft-light',
-          backgroundColor: 'rgba(30, 64, 175, 0.65)', // Lighter blue for better readability
-          position: 'relative',
-          overflow: 'hidden'
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "soft-light",
+          backgroundColor: "rgba(30, 64, 175, 0.65)",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue-800/60 to-indigo-700/50"></div>
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">Our Portfolio</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
+            Our Portfolio
+          </h1>
           <p className="text-xl text-white max-w-2xl font-medium drop-shadow">
             Explore our latest projects and see how we've helped businesses transform through technology.
           </p>
@@ -73,43 +65,53 @@ function Portfolio() {
       </div>
 
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden group"
-            >
-              <div className="relative h-64">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                  <div className="p-6 w-full">
-                    <div className="flex items-center mb-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white">
-                        {project.icon}
-                        <span className="ml-2">{project.category}</span>
-                      </span>
+        {loading ? (
+          <p className="text-center text-gray-600">Loading...</p>
+        ) : projects.length === 0 ? (
+          <p className="text-center text-gray-600">No projects found.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-lg shadow-lg overflow-hidden group"
+              >
+                <div className="relative h-80">
+                  <img
+                    src={project.breadcrumb_image}
+                    alt={project.title}
+                    className="w-auto h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                    <div className="p-6 w-full">
+                      <div className="flex items-center mb-2">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white">
+                          {project.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-white mb-1">
+                        {project.title}
+                      </h3>
+                      {project.subtitle && (
+                        <p className="text-gray-300 text-sm mb-2">{project.subtitle}</p>
+                      )}
+
+                      <Link
+                        to={`/portfolio/${project.id}`}
+                        className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-md text-sm hover:bg-primary-600 transition-colors"
+                      >
+                        View Details
+                      </Link>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-200 mb-4">{project.description}</p>
-                    <Link 
-                      to={`/portfolio/${project.slug}`}
-                      className="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-md text-sm hover:bg-primary-600 transition-colors"
-                    >
-                      View Details
-                    </Link>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );

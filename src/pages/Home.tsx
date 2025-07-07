@@ -16,17 +16,17 @@ function Home() {
     >
       <Hero />
       <ScrollReveal>
-        <ServicesPreview />
+        <AboutPreview />
       </ScrollReveal>
       <ScrollReveal>
-        <AboutPreview />
+        <ServicesPreview />
       </ScrollReveal>
       <ScrollReveal>
         <PortfolioPreview />
       </ScrollReveal>
-      <ScrollReveal>
+      {/* <ScrollReveal>
         <TestimonialsPreview />
-      </ScrollReveal>
+      </ScrollReveal> */}
     </motion.div>
   );
 }

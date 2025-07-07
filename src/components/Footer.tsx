@@ -1,18 +1,27 @@
 import React from 'react';
-import { BellRing, Github, Twitter, Linkedin, ArrowRight } from 'lucide-react';
+import { Github, Twitter, Linkedin, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="bg-secondary-900 text-white pt-16 pb-8">
       <div className="container">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="flex items-center mb-6">
-              <BellRing size={32} className="text-primary-400 mr-2" />
-              <span className="text-xl font-bold text-white">Single Bridge</span>
+            <div className="inline-flex items-center mb-6 border-b-2 border-white pb-1">
+              <img
+                src="https://hashisbucket.s3.us-east-2.amazonaws.com/Single+Bridge/Logo2.png"
+                alt="Single Bridge Logo"
+                className="h-10 w-auto -mr-3"
+              />
+              <span className="text-xl font-bold text-white">
+                Single Bridge
+              </span>
             </div>
+
+
+
             <p className="text-gray-400 mb-6">
               Bridging the gap between innovative ideas and technological solutions. We help businesses transform through cutting-edge digital experiences.
             </p>
@@ -28,7 +37,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="text-lg font-semibold mb-6">Company</h4>
             <ul className="space-y-3">
@@ -39,7 +48,7 @@ const Footer = () => {
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-lg font-semibold mb-6">Services</h4>
             <ul className="space-y-3">
@@ -50,19 +59,19 @@ const Footer = () => {
               <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Digital Transformation</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-lg font-semibold mb-6">Newsletter</h4>
             <p className="text-gray-400 mb-4">Stay updated with our latest news and offers.</p>
             <form className="mb-4">
               <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
+                <input
+                  type="email"
+                  placeholder="Your email"
                   className="px-4 py-2 rounded-l-md w-full bg-secondary-800 border border-secondary-700 text-white focus:outline-none focus:ring-1 focus:ring-primary-500"
                 />
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="p-2 bg-primary-500 hover:bg-primary-600 rounded-r-md transition-colors"
                 >
                   <ArrowRight size={20} />
@@ -74,9 +83,9 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        
+
         <hr className="border-secondary-800 my-8" />
-        
+
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             &copy; {currentYear} Single Bridge. All rights reserved.
@@ -88,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

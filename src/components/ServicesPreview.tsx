@@ -40,7 +40,7 @@ const ServicesPreview = () => {
             We deliver cutting-edge technology solutions to help businesses transform and innovate.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
@@ -61,12 +61,11 @@ const ServicesPreview = () => {
             </motion.div>
           ))}
         </div>
-        
-        <div className="mt-12 text-center">
-          <Link to="/services" className="btn btn-primary inline-flex items-center">
-            View All Services
-            <ExternalLink size={18} className="ml-2" />
-          </Link>
+
+        <div className="mt-16 text-center">
+          <a href="#contact" className="btn btn-primary">
+            Discuss Your Project
+          </a>
         </div>
       </div>
     </section>

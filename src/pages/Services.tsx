@@ -98,14 +98,14 @@ const Services = () => {
       transition={{ duration: 0.6 }}
       className="pt-20 md:pt-24"
     >
-      <div 
+      <div
         className="bg-primary-500 text-white py-16 md:py-24"
         style={{
           backgroundImage: "url('https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1600')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'overlay',
-          backgroundColor: 'rgba(0, 128, 128, 0.85)', 
+          backgroundColor: 'rgba(0, 128, 128, 0.85)',
           position: 'relative',
           overflow: 'hidden'
         }}
@@ -138,7 +138,7 @@ const Services = () => {
                   </div>
                   <h2 className="text-3xl font-bold">{service.title}</h2>
                   <p className="text-lg text-secondary-600">{service.description}</p>
-                  
+
                   <div className="space-y-4">
                     <h3 className="text-xl font-semibold">Key Features</h3>
                     <ul className="grid gap-3">
@@ -149,8 +149,8 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
-                    
-                    <Link 
+
+                    <Link
                       to={`/services/${service.slug}`}
                       className="inline-flex items-center text-primary-500 font-medium hover:text-primary-600 mt-4"
                     >
@@ -159,7 +159,7 @@ const Services = () => {
                     </Link>
                   </div>
                 </div>
-                
+
                 <div className={`bg-gray-50 p-8 rounded-2xl ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <h3 className="text-xl font-semibold mb-6">Benefits</h3>
                   <div className="space-y-4">
@@ -188,7 +188,7 @@ const Services = () => {
           </a>
         </div>
       </section>
-    </motion.div>
+    </motion.div >
   );
 };
 

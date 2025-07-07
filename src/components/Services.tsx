@@ -7,34 +7,54 @@ const services = [
   {
     id: 1,
     slug: 'software-development',
-    title: 'Software Development',
-    description: 'Custom software solutions tailored to your unique business needs, from enterprise systems to specialized tools.',
+    title: 'Custom Software Development',
+    description:
+      'We build robust, scalable software tailored to your business processes, helping you improve efficiency, reduce costs, and stay ahead of the competition.',
     icon: <Code size={40} className="text-primary-500" />,
-    benefits: ['Scalable architecture', 'Future-proof technology', 'Custom workflows'],
+    benefits: [
+      'Tailored to your workflows',
+      'Future-ready architecture',
+      'Seamless integration',
+    ],
   },
   {
     id: 2,
     slug: 'cloud-solutions',
-    title: 'Cloud Solutions',
-    description: 'Secure, scalable cloud infrastructure with migration services, optimization, and ongoing maintenance.',
+    title: 'Cloud Solutions & Infrastructure',
+    description:
+      'Migrate, optimize, and manage your infrastructure in the cloud with confidence. We design secure, scalable environments that grow with your business.',
     icon: <Cloud size={40} className="text-primary-500" />,
-    benefits: ['Cost optimization', 'Enhanced security', 'Automated scaling'],
+    benefits: [
+      'Cost-effective operations',
+      'High availability & security',
+      'Flexible scalability',
+    ],
   },
   {
     id: 3,
     slug: 'web-mobile-development',
-    title: 'Web & Mobile Development',
-    description: 'Responsive websites and native mobile applications with intuitive UI/UX and cross-platform compatibility.',
+    title: 'Web & Mobile Application Development',
+    description:
+      'Deliver exceptional user experiences with modern web platforms and mobile apps that engage customers across devices and channels.',
     icon: <Smartphone size={40} className="text-primary-500" />,
-    benefits: ['Responsive design', 'Cross-platform', 'Performance focused'],
+    benefits: [
+      'Responsive, intuitive interfaces',
+      'Cross-platform compatibility',
+      'Performance optimized',
+    ],
   },
   {
     id: 4,
     slug: 'ai-integration',
-    title: 'AI Integration',
-    description: 'Harness the power of artificial intelligence and machine learning to transform your data into actionable insights.',
+    title: 'AI & Machine Learning Integration',
+    description:
+      'Leverage AI to unlock actionable insights, automate processes, and personalize experiences that drive measurable business impact.',
     icon: <BrainCircuit size={40} className="text-primary-500" />,
-    benefits: ['Predictive analytics', 'Process automation', 'Customer insights'],
+    benefits: [
+      'Predictive data analytics',
+      'Process automation',
+      'Enhanced decision-making',
+    ],
   },
 ];
 

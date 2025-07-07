@@ -11,13 +11,13 @@ type FormData = {
 };
 
 const Contact = () => {
-  const { 
-    register, 
-    handleSubmit, 
+  const {
+    register,
+    handleSubmit,
     formState: { errors, isSubmitting },
-    reset 
+    reset
   } = useForm<FormData>();
-  
+
   const onSubmit = async (data: FormData) => {
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -35,7 +35,7 @@ const Contact = () => {
             Have a project in mind? Let's discuss how we can help you achieve your technology goals.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-10">
           <div className="md:col-span-1">
             <motion.div
@@ -45,7 +45,7 @@ const Contact = () => {
               transition={{ duration: 0.5 }}
             >
               <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 p-2 bg-primary-50 rounded-full">
@@ -54,22 +54,23 @@ const Contact = () => {
                   <div>
                     <h4 className="text-base font-medium">Our Location</h4>
                     <p className="text-secondary-600">
-                      123 Tech Plaza, Suite 400<br />
-                      San Francisco, CA 94105
+                      Building No. 24/290<br />
+                      PUTHUKKAZHIPPADAM<br /> Nallur - Perumumukham Road<br />
+                      Feroke, Kozhikode, Kerala 673631
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 p-2 bg-primary-50 rounded-full">
                     <Phone size={20} className="text-primary-500" />
                   </div>
                   <div>
                     <h4 className="text-base font-medium">Phone Number</h4>
-                    <p className="text-secondary-600">+1 (555) 123-4567</p>
+                    <p className="text-secondary-600">+91 88916 40634</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 p-2 bg-primary-50 rounded-full">
                     <Mail size={20} className="text-primary-500" />
@@ -80,15 +81,15 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-8 p-6 bg-primary-500 rounded-lg text-white">
                 <h4 className="text-lg font-semibold mb-2">Working Hours</h4>
-                <p className="opacity-90 mb-1">Monday - Friday: 9AM - 6PM</p>
+                <p className="opacity-90 mb-1">Monday - Saturday: 9AM - 6PM</p>
                 <p className="opacity-90">Weekend: By appointment</p>
               </div>
             </motion.div>
           </div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +99,7 @@ const Contact = () => {
           >
             <div className="card">
               <h3 className="text-xl font-semibold mb-6">Send Us a Message</h3>
-              
+
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -108,7 +109,7 @@ const Contact = () => {
                       type="text"
                       className={`form-input ${errors.name ? 'border-error-500 focus:border-error-500 focus:ring-error-500' : ''}`}
                       placeholder="John Doe"
-                      {...register('name', { 
+                      {...register('name', {
                         required: 'Name is required',
                         minLength: {
                           value: 2,
@@ -120,7 +121,7 @@ const Contact = () => {
                       <p className="mt-1 text-sm text-error-500">{errors.name.message}</p>
                     )}
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="form-label">Email Address</label>
                     <input
@@ -128,7 +129,7 @@ const Contact = () => {
                       type="email"
                       className={`form-input ${errors.email ? 'border-error-500 focus:border-error-500 focus:ring-error-500' : ''}`}
                       placeholder="john@example.com"
-                      {...register('email', { 
+                      {...register('email', {
                         required: 'Email is required',
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -141,7 +142,7 @@ const Contact = () => {
                     )}
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="subject" className="form-label">Subject</label>
                   <input
@@ -155,7 +156,7 @@ const Contact = () => {
                     <p className="mt-1 text-sm text-error-500">{errors.subject.message}</p>
                   )}
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="form-label">Message</label>
                   <textarea
@@ -163,7 +164,7 @@ const Contact = () => {
                     rows={5}
                     className={`form-input resize-none ${errors.message ? 'border-error-500 focus:border-error-500 focus:ring-error-500' : ''}`}
                     placeholder="Tell us about your project..."
-                    {...register('message', { 
+                    {...register('message', {
                       required: 'Message is required',
                       minLength: {
                         value: 10,
@@ -175,7 +176,7 @@ const Contact = () => {
                     <p className="mt-1 text-sm text-error-500">{errors.message.message}</p>
                   )}
                 </div>
-                
+
                 <button
                   type="submit"
                   className="btn btn-primary w-full"
