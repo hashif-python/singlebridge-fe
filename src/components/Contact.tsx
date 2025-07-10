@@ -2,11 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type FormData = {
   name: string;
   email: string;
-  subject: string;
+  subject?: string;
   message: string;
 };
 
@@ -15,15 +17,29 @@ const Contact = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log('Form submitted:', data);
-    alert('Thank you for your message! We will get back to you soon.');
-    reset();
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      toast.success('Message sent successfully! We will get back to you soon.');
+      reset();
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Something went wrong. Please try again later.');
+    }
   };
 
   return (
@@ -55,7 +71,8 @@ const Contact = () => {
                     <h4 className="text-base font-medium">Our Location</h4>
                     <p className="text-secondary-600">
                       Building No. 24/290<br />
-                      PUTHUKKAZHIPPADAM<br /> Nallur - Perumumukham Road<br />
+                      PUTHUKKAZHIPPADAM<br />
+                      Nallur - Perumumukham Road<br />
                       Feroke, Kozhikode, Kerala 673631
                     </p>
                   </div>
@@ -113,8 +130,8 @@ const Contact = () => {
                         required: 'Name is required',
                         minLength: {
                           value: 2,
-                          message: 'Name must be at least 2 characters'
-                        }
+                          message: 'Name must be at least 2 characters',
+                        },
                       })}
                     />
                     {errors.name && (
@@ -133,8 +150,8 @@ const Contact = () => {
                         required: 'Email is required',
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: 'Invalid email address'
-                        }
+                          message: 'Invalid email address',
+                        },
                       })}
                     />
                     {errors.email && (
@@ -150,11 +167,8 @@ const Contact = () => {
                     type="text"
                     className={`form-input ${errors.subject ? 'border-error-500 focus:border-error-500 focus:ring-error-500' : ''}`}
                     placeholder="Project Inquiry"
-                    {...register('subject', { required: 'Subject is required' })}
+                    {...register('subject')}
                   />
-                  {errors.subject && (
-                    <p className="mt-1 text-sm text-error-500">{errors.subject.message}</p>
-                  )}
                 </div>
 
                 <div>
@@ -168,8 +182,8 @@ const Contact = () => {
                       required: 'Message is required',
                       minLength: {
                         value: 10,
-                        message: 'Message must be at least 10 characters'
-                      }
+                        message: 'Message must be at least 10 characters',
+                      },
                     })}
                   />
                   {errors.message && (

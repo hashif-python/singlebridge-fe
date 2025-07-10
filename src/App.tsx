@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Services from './pages/Services';
-import ServiceDetail from './pages/ServiceDetail';
-import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import PortfolioDetail from './pages/PortfolioDetail';
 import Testimonials from './pages/Testimonials';
 import Contact from './components/Contact';
 import NotFound from './pages/NotFound';
+import { ToastContainer } from 'react-toastify';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -40,6 +38,8 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <ToastContainer position="top-right" autoClose={3000} />
+
           <Contact />
         </main>
         <Footer />
