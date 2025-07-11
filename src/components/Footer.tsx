@@ -13,7 +13,7 @@ const Footer = () => {
               <img
                 src="https://hashisbucket.s3.us-east-2.amazonaws.com/Single+Bridge/Logo2.png"
                 alt="Single Bridge Logo"
-                className="h-10 w-auto -mr-3"
+                className="h-10 w-auto -mr-1"
               />
               <span className="text-xl font-bold text-white">
                 Single Bridge

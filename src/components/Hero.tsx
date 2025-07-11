@@ -24,12 +24,12 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Bridging Technology <br className="hidden md:block" />
-              <span className="text-primary-400">With Innovation</span>
+              Empowering Ideas
+              <br className="hidden md:block" />
+              <span className="text-primary-400">Engineering the Future</span>
             </h1>
             <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-lg">
-              We craft cutting-edge digital solutions that help startups and enterprises thrive with modern software, cloud-native systems, and AI-powered applications.
-            </p>
+              We’re a passionate startup building next-gen digital experiences—AI-powered apps, scalable cloud systems, and custom software that fuel your growth and innovation.               </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#contact" className="btn btn-primary transition-colors duration-300 hover:bg-primary-600 hover:text-white">
                 Get a Free Consultation
